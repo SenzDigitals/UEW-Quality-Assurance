@@ -1,0 +1,130 @@
+﻿
+@model UEW_Quality_Assurance.Models.Email
+@using MySql.Data.MySqlClient;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Email Management Section</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        
+        @{
+            var connectionString = "server = localhost; port = 3306; database = UEW_QUALITY_ASSURANCE; user = root; password = ";
+            //var students = new StudentViewModel();
+            List<Lecturer> lecturers = new List<Lecturer>();
+
+            var query = "Select * from lecturer";
+
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, con);
+
+                    con.Open();
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Lecturer lec = new Lecturer();
+
+                        lec.lecturerID = Convert.ToInt32(reader["lecturerID"]);
+                        lec.Fname = Convert.ToString(reader["fname"]);
+                        lec.Lname = Convert.ToString(reader["lname"]);
+                        lec.Email = Convert.ToString(reader["email"]);
+
+
+                        lecturers.Add(lec);
+                    }
+                    con.Close();
+                }
+
+                <table class="table">
+                    <thead>
+                                <tr>
+                                    <th>
+                                        Lecturer ID
+                                    </th>
+                                    <th>
+                                        Full Name
+                                    </th>
+                                    <th>
+                                        E-mail
+                                    </th>
+                                    <!--<-->@*th>
+                                        All <input type="checkbox" name="name" value="" />
+                                    </th>*@
+          </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in lecturers)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lecturerID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Lname) @Html.DisplayFor(modelItem => item.Fname)
+                            </td>
+                            <td>
+                                <a asp-action="Index" runat="server" id="emailClicked" Text ="@item.Email" 
+                                   onclick="AddValues ">@Html.DisplayFor(modelItem => item.Email)</a>
+                            </td>
+                            
+                        </tr>
+
+                        }
+                    </tbody>
+                </table>
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+    </div>
+
+    <div class="col-md-5" >
+        <h4 align="center">Compose Mail</h4>
+
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="To" class="control-label"></label>
+                @*<select asp-for="To" runat="server" id="Address" class="form-control" asp-items="ViewBag.Email"  ></select>*@
+                <input asp-for="To" class="form-control" />
+                <span asp-validation-for="To" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" value=""/>
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Body" class="control-label"></label>
+                <textarea asp-for="Body" class="form-control" rows="8" cols="15"></textarea>
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Send Mail" class="btn btn-primary" value="" />
+            </div>
+            <h5>@ViewBag.Message</h5>
+        </form>
+
+        
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+

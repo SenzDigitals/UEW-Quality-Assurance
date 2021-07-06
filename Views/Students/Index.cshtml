@@ -1,0 +1,55 @@
+﻿@model IEnumerable<UEW_Quality_Assurance.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        Find By Name <input name="searchString" type="text" value="@ViewData["currentFilter"]" />
+                     <input class="btn btn-default" type="submit" value="Search" />
+    </div>
+</form>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.studentID)
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                    
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.studentID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lname) @Html.DisplayFor(modelItem => item.fname)
+                        </td>
+                        <td>
+                        </td>
+
+                        <td>
+
+                            <a asp-action="Details" asp-route-id="@item.studentID">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

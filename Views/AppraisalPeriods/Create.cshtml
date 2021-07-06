@@ -1,0 +1,140 @@
+﻿@model UEW_Quality_Assurance.Models.AppraisalPeriod
+@using MySql.Data.MySqlClient;
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("/Views/Partials/_LoadPeriod.cshtml")
+
+<h4>AppraisalPeriod</h4>
+<hr />
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="academicYear" class="control-label"></label>
+                    <input asp-for="academicYear" class="form-control" />
+                    <span asp-validation-for="academicYear" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="semester" class="control-label"></label>
+                    <input asp-for="semester" class="form-control" />
+                    <span asp-validation-for="semester" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="startDate" class="control-label"></label>
+                    <input asp-for="startDate" class="form-control" />
+                    <span asp-validation-for="startDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="endDate" class="control-label"></label>
+                    <input asp-for="endDate" class="form-control" />
+                    <span asp-validation-for="endDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+                @{
+                    var connectionString = "server = localhost; port = 3306; database = UEW_QUALITY_ASSURANCE; user = root; password = ";
+                    //var students = new StudentViewModel();
+                    List<AppraisalPeriod> periods = new List<AppraisalPeriod>();
+
+                    var query = "Select * from appraisalperiod";
+
+                    try
+                    {
+                        using (MySqlConnection con = new MySqlConnection(connectionString))
+                        {
+                            MySqlCommand cmd = new MySqlCommand(query, con);
+
+                            con.Open();
+
+                            MySqlDataReader reader = cmd.ExecuteReader();
+
+                            while (reader.Read())
+                            {
+                                AppraisalPeriod period = new AppraisalPeriod();
+
+                                period.ID = Convert.ToInt32(reader["ID"]);
+                                period.academicYear = Convert.ToDateTime(reader["academicYear"]);
+                                period.semester = Convert.ToInt32(reader["semester"]);
+                                period.endDate = Convert.ToDateTime(reader["endDate"]);
+
+
+
+                                periods.Add(period);
+                            }
+                            con.Close();
+                        }
+
+
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.academicYear)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.semester)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.startDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.endDate)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in periods)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.academicYear)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.semester)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.startDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.endDate)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                            @*<a asp-action="Details" asp-route-id="@item.ID">Details</a> |*@
+                                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+            </div>
+        </div>
+    
+
+                @*<div>
+                    <a asp-action="Index">Back to List</a>
+                </div>*@
+

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<UEW_Quality_Assurance.Models.Lecturer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Email Management Section</h3>
+<hr />
+<br />  <br />
+
+        <a asp-controller="Emails" asp-action="Index">Send Mail</a>
+
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Lecturer ID
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                    @*<th>
+                        Phone
+                    </th>*@
+                    <th>
+                        E-mail
+                    </th>
+                    @*<th>
+                        Department
+                    </th>*@
+                    @*<th>
+                        All <input type="checkbox" name="name" value="" />
+                    </th>*@
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.lecturerID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Lname) @Html.DisplayFor(modelItem => item.Fname)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.Fname)
+                        </td>*@
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.Department.name)
+                        </td>*@
+                        @*<td>
+                            <input type="checkbox" name="name" value="" />
+                        </td>*@
+                        <td>
+                            @*<a asp-action="Edit" asp-route-id="@item.lecturerID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.lecturerID">Details</a> |*@
+                            @*<a asp-action="Delete" asp-route-id="@item.lecturerID">Delete</a>*@
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="col-md-6">
+        {
+            
+        }
+    </div>
+</div>
+
+
+

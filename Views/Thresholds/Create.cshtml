@@ -1,0 +1,110 @@
+﻿@model UEW_Quality_Assurance.Models.Threshold
+@using MySql.Data.MySqlClient; 
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("/Views/Partials/_LoadPeriod.cshtml")
+
+<h4>Threshold</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="limit" class="control-label"></label>
+                <input asp-for="limit" class="form-control" />
+                <span asp-validation-for="limit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="questions" class="control-label"></label>
+                <input asp-for="questions" class="form-control" />
+                <span asp-validation-for="questions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-8 ">
+        @{
+            var connectionString = "server = localhost; port = 3306; database = UEW_QUALITY_ASSURANCE; user = root; password = ";
+            //var students = new StudentViewModel();
+            List<Threshold> periods = new List<Threshold>();
+
+            var query = "Select * from threshold";
+
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, con);
+
+                    con.Open();
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Threshold period = new Threshold();
+
+                        period.ID = Convert.ToInt32(reader["ID"]);
+                        period.limit = Convert.ToInt32(reader["limit"]);
+                        period.questions = Convert.ToInt32(reader["questions"]);
+
+
+
+                        periods.Add(period);
+                    }
+                    con.Close();
+                }
+
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.limit)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.questions)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in periods)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.limit)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.questions)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+    </div>
+</div>
+</div>
+
+
+

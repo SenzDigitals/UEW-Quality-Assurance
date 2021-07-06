@@ -1,0 +1,118 @@
+﻿@using UEW_Quality_Assurance.Data
+@model dynamic
+@using MySql.Data.MySqlClient
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>View</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-2">
+            <strong>
+                <p>Student ID:</p>
+                <p>Full Name:</p>
+                <p>Program:</p>
+            </strong>
+        </div>
+
+        <div class="col-md-">
+            @foreach (Student student in Model.Students)
+            {
+                if (student.studentID != null)
+                {
+                    <p>@student.studentID</p>
+                    <p>@student.lname @student.fname</p>
+                    <p></p>
+
+                }
+
+            }
+        </div>
+
+    </div>
+
+    <hr />
+
+    <h2>Course Enrollment And Appraisal Details</h2>
+    <strong>
+        <div class="row">
+
+            <div class="col-md-3">
+                Course Code
+            </div>
+            <div class="col-md-3">
+                Course Title
+            </div>
+            <div class="col-md-3">
+                Status
+            </div>
+        </div>
+    </strong>
+
+    <div class="row">
+        <div class="col-md-3">
+
+            @foreach (Enrollment enrollment in Model.Enrollments)
+            {
+                <p>@enrollment.courseID</p>
+
+            }
+        </div>
+
+        <div class="col-md-3">
+            @{
+                List<Course> courses = new List<Course>();
+
+                @foreach (Enrollment enrollment in Model.Enrollments)
+                {
+                    var connectionString = "server = localhost; port = 3306; database = UEW_QUALITY_ASSURANCE; user = root; password = ";
+                    //var students = new StudentViewModel();
+
+
+                    var query = "Select title from course  WHERE courseID='" + enrollment.courseID + "'";
+
+                    try
+                    {
+                        using (MySqlConnection con = new MySqlConnection(connectionString))
+                        {
+                            MySqlCommand cmd = new MySqlCommand(query, con);
+
+                            con.Open();
+
+                            MySqlDataReader reader = cmd.ExecuteReader();
+
+                            while (reader.Read())
+                            {
+                                Course course = new Course();
+
+                                course.title = Convert.ToString(reader["title"]);
+
+                                courses.Add(course);
+
+                            }
+                            con.Close();
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+
+            @foreach(var course in courses)
+            {
+                <p>@course.title</p>
+
+            }
+            }
+
+        </div>
+    
+</div>
+
