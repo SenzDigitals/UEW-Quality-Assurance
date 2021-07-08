@@ -193,6 +193,47 @@
     transform: translateY(0);
 }
 
+.delete-form {
+    font-size: 1.5rem;
+}
+
+.myform_delete {
+    color: var(--color-red-dark);
+    display: inline-block;
+    text-decoration: none;
+    background-color:transparent;
+    border:none;
+    border-bottom: .1rem solid var(--color-red-dark);
+    padding: .3rem;
+    transition: all .2s;
+}
+.myform_delete:hover {
+    background-color: var(--color-red-dark);
+    color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+    transform: translateY(-.2rem);
+ }
+
+.myform_back:link,
+.myform_back:visited{
+    font-size: 1rem;
+    color: green;
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: .1rem solid green;
+    padding: .3rem;
+    transition: all .2s;
+}
+
+.myform_back:hover {
+    background-color: green;
+    color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+    transform: translateY(-.2rem);
+}
+
 @keyframes joinText{
     0%{
         letter-spacing:10rem;
