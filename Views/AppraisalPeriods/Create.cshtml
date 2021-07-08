@@ -5,40 +5,40 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/css/body.css" />
 
 @Html.Partial("/Views/Partials/_LoadPeriod.cshtml")
 
-<h4>AppraisalPeriod</h4>
-<hr />
+
+<h4 class="appraisal-header">AppraisalPeriod</h4>
 
 
-
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Create">
+    <div class="row appraisal-body">
+        <div class="col-md-4 appraisal-body_form">
+            <form asp-action="Create" class="myform">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="academicYear" class="control-label"></label>
-                    <input asp-for="academicYear" class="form-control" />
+                    <label asp-for="academicYear" class="control-label myform_label"></label>
+                    <input asp-for="academicYear" class="form-control myform_input" />
                     <span asp-validation-for="academicYear" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="semester" class="control-label"></label>
-                    <input asp-for="semester" class="form-control" />
+                    <label asp-for="semester" class="control-label myform_label"></label>
+                    <input asp-for="semester" class="form-control myform_input" />
                     <span asp-validation-for="semester" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="startDate" class="control-label"></label>
-                    <input asp-for="startDate" class="form-control" />
+                    <label asp-for="startDate" class="control-label myform_label"></label>
+                    <input asp-for="startDate" class="form-control myform_input" />
                     <span asp-validation-for="startDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="endDate" class="control-label"></label>
-                    <input asp-for="endDate" class="form-control" />
+                    <label asp-for="endDate" class="control-label myform_label"></label>
+                    <input asp-for="endDate" class="form-control myform_input" />
                     <span asp-validation-for="endDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Create" class="btn btn-primary myform_btn" />
                 </div>
             </form>
         </div>
@@ -79,7 +79,7 @@
 
 
 
-                        <table class="table">
+                        <table class="table myappraisal-table">
                             <thead>
                                 <tr>
                                     <th>
@@ -114,9 +114,9 @@
                                             @Html.DisplayFor(modelItem => item.endDate)
                                         </td>
                                         <td>
-                                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                                            <a class="mybtn-edit" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                                             @*<a asp-action="Details" asp-route-id="@item.ID">Details</a> |*@
-                                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                                            <a class="mybtn-delete" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
                                         </td>
                                     </tr>
                                 }

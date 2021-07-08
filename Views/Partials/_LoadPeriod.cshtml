@@ -1,13 +1,14 @@
-﻿<div class="flex-xl-row">
-    <div class="col-md-5">
+﻿<link rel="stylesheet" href="~/css/header.css" />
+<div class="flex-xl-row">
+    <div class="col-md-5 ">
 
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between appraisal-head">
 
-            <a class="nav-link text-dark" asp-area="" asp-controller="AppraisalPeriods" asp-action="Index">Appraisal Period</a>
-            <a class="nav-link text-dark" asp-area="" asp-controller="Thresholds" asp-action="Create">Threshold</a>
+            <a class="nav-link text-dark appraisal-head_link" asp-area="" asp-controller="AppraisalPeriods" asp-action="Index">Appraisal Period</a>
+            <a class="nav-link text-dark appraisal-head_link" asp-area="" asp-controller="Thresholds" asp-action="Create">Threshold</a>
             @*<a class="nav-link text-dark" asp-controller="Accounts" asp-action="Register">Users</a>*@
-            <a class="nav-link text-dark" asp-area="Identity"  asp-page="/Account/Register">Users</a>
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Data</a>
+            <a class="nav-link text-dark appraisal-head_link" asp-area="Identity"  asp-page="/Account/Register">Users</a>
+            <a class="nav-link text-dark appraisal-head_link" asp-area="" asp-controller="Home" asp-action="Privacy">Data</a>
         </div>
-        <br />
     </div>
+</div>
