@@ -4,19 +4,18 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/css/body.css" />
+<link rel="stylesheet" href="~/css/table.css" />
 
-<h3>Email Management Section</h3>
-<hr />
-<br />  <br />
+<h3 class="appraisal-header">Email Management Section</h3>
 
-        <a asp-controller="Emails" asp-action="Index">Send Mail</a>
 
 
 @*<p>
     <a asp-action="Create">Create New</a>
 </p>*@
 
-<div class="row">
+<div class="row mail-body">
     <div class="col-md-6">
         <table class="table">
             <thead>
@@ -80,9 +79,7 @@
     </div>
 
     <div class="col-md-6">
-        {
-            
-        }
+        <a asp-controller="Emails" asp-action="Index">Send Mail</a>
     </div>
 </div>
 

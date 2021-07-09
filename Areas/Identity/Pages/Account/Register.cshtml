@@ -5,35 +5,35 @@
 }
 
 @Html.Partial("/Views/Partials/_LoadPeriod.cshtml")
+<link rel="stylesheet"  href="~/css/body.css" />
+<h1 class="appraisal-header">@ViewData["Title"]</h1>
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
+<div class="row body-page">
     <div class="col-md-4">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h4>Create a new account.</h4>
-            <hr />
+            
             <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
+            <div class="form-group form_group">
+                <label asp-for="Input.Email" class="myform_label"></label>
+                <input asp-for="Input.Email" class="form-control myform_input-half" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
+            <div class="form-group form_group">
+                <label asp-for="Input.Password" class="myform_label"></label>
+                <input asp-for="Input.Password" class="form-control myform_input-half" />
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
+            <div class="form-group form_group">
+                <label asp-for="Input.ConfirmPassword" class="myform_label"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control myform_input-half" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Input.Role" class="col-md-5 custom-control-label"></label>
+            <div class="form-group form_group">
+                <label asp-for="Input.Role" class="col-md-5 custom-control-label myform_label"></label>
                 @Html.DropDownListFor(model => model.Input.Role, new SelectList(Enum.GetValues(typeof(Role))), "Sele Role", new { @class = "form-control" })
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary myform_btn">Register</button>
         </form>
     </div>
     <div class="col-md-6 col-md-offset-2">
