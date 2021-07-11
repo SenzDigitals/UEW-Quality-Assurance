@@ -149,14 +149,37 @@
     .appraisal-body {
         flex-direction:column;
         text-align:center;
+        
     }
 
     .mail-body {
         flex-direction: column;
+        text-align: center;
     }
+
 
     .mail-table{
         margin-left: 0;
+    }
+
+    .appraisal-body_form {
+        margin-bottom: 2rem;
+    }
+
+    .myform_input {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .text-danger {
+        visibility:hidden
+    }
+
+    .myappraisal-table {
+        margin-top: 2rem;
+        align-self: center;
+        justify-self: center;
+        /*margin-left: 2.6rem;*/
     }
 }
 
@@ -189,13 +212,6 @@
     display: inline-block;
     transition: all .3s;
     text-align:center;
-}
-
-@media only screen and (max-width: 56.25em) {
-    .myform_input {
-        width:50%;
-        display:inline;
-    }
 }
 
 .myform_input:focus {
@@ -246,6 +262,7 @@
 .myappraisal-table{
     font-size:1.2rem;
 }
+
 
 .mybtn-edit:link,
 .mybtn-edit:visited{
@@ -332,7 +349,15 @@
     transform: translateY(-.2rem);
 }
 
-@keyframes joinText{
+.student-details{
+    font-size:1.2rem;
+}
+
+.student-details_student{
+    margin-bottom: 2rem;
+}
+
+@keyframes joinText {
     0%{
         letter-spacing:10rem;
     }
