@@ -4,21 +4,25 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/css/body.css" />
+<link rel="stylesheet" href="~/css/table.css" />
 
-<h3>Email Management Section</h3>
-<hr />
-<br />  <br />
+<h3 class="appraisal-header">Email Management Section</h3>
 
-        <a asp-controller="Emails" asp-action="Index">Send Mail</a>
 
 
 @*<p>
     <a asp-action="Create">Create New</a>
 </p>*@
 
-<div class="row">
+<div class="row mail-body">
+
     <div class="col-md-6">
-        <table class="table">
+        <a asp-controller="Emails" asp-action="Index">Send Mail</a>
+    </div>
+
+    <div class="col-md-6">
+        <table class="table my-table">
             <thead>
                 <tr>
                     <th>
@@ -28,17 +32,17 @@
                         Full Name
                     </th>
                     @*<th>
-                        Phone
-                    </th>*@
+                            Phone
+                        </th>*@
                     <th>
                         E-mail
                     </th>
                     @*<th>
-                        Department
-                    </th>*@
+                            Department
+                        </th>*@
                     @*<th>
-                        All <input type="checkbox" name="name" value="" />
-                    </th>*@
+                            All <input type="checkbox" name="name" value="" />
+                        </th>*@
                 </tr>
             </thead>
             <tbody>
@@ -52,37 +56,32 @@
                             @Html.DisplayFor(modelItem => item.Lname) @Html.DisplayFor(modelItem => item.Fname)
                         </td>
                         @*<td>
-                            @Html.DisplayFor(modelItem => item.Fname)
-                        </td>*@
+                                @Html.DisplayFor(modelItem => item.Fname)
+                            </td>*@
                         @*<td>
-                            @Html.DisplayFor(modelItem => item.Phone)
-                        </td>*@
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
                         @*<td>
-                            @Html.DisplayFor(modelItem => item.Department.name)
-                        </td>*@
+                                @Html.DisplayFor(modelItem => item.Department.name)
+                            </td>*@
                         @*<td>
-                            <input type="checkbox" name="name" value="" />
-                        </td>*@
-                        <td>
+                                <input type="checkbox" name="name" value="" />
+                            </td>*@
+                        <!--<td>
                             @*<a asp-action="Edit" asp-route-id="@item.lecturerID">Edit</a> |
                             <a asp-action="Details" asp-route-id="@item.lecturerID">Details</a> |*@
                             @*<a asp-action="Delete" asp-route-id="@item.lecturerID">Delete</a>*@
-                        </td>
+                        </td>-->
+
                     </tr>
 
                 }
             </tbody>
         </table>
 
-    </div>
-
-    <div class="col-md-6">
-        {
-            
-        }
     </div>
 </div>
 

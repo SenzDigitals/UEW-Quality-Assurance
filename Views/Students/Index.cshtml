@@ -4,52 +4,56 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/css/body.css" />
+<link rel="stylesheet" href="~/css/table.css" />
+
+<div class="mycolumn-body">
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color mysearch">
+            <h4>Find By Name</h4> 
+            <input class="mysearch_input"name="searchString" type="text" value="@ViewData["currentFilter"]" />
+            <input class="btn btn-default myform_btn-small" type="submit" value="Search" />
+        </div>
+    </form>
 
 
-<form asp-action="Index" method="get">
-    <div class="form-actions no-color">
-        Find By Name <input name="searchString" type="text" value="@ViewData["currentFilter"]" />
-                     <input class="btn btn-default" type="submit" value="Search" />
-    </div>
-</form>
-
-
-<div class="row">
-    <div class="col-md-6">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.studentID)
-                    </th>
-                    <th>
-                        Full Name
-                    </th>
-                    
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var item in Model)
-                {
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table my-table">
+                <thead>
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.studentID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.lname) @Html.DisplayFor(modelItem => item.fname)
-                        </td>
-                        <td>
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.studentID)
+                        </th>
+                        <th>
+                            Full Name
+                        </th>
 
-                        <td>
-
-                            <a asp-action="Details" asp-route-id="@item.studentID">Details</a>
-                        </td>
+                        <th>
+                            Details
+                        </th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.studentID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lname) @Html.DisplayFor(modelItem => item.fname)
+                            </td>
+                            <td>
+
+                                <a asp-action="Details" class="mybtn-edit" asp-route-id="@item.studentID">Details</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
+
 </div>

@@ -1,0 +1,54 @@
+﻿:root {
+    --color-primary: #eb2f64;
+    --color-red-light: #FF0000;
+    --color-red-dark: #c40233;
+    --color-blue-light: #0000ff;
+    --color-blue-dark: #0018a8;
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+    --color-grey-light-4: #ccc;
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+    --color-blond: #faf0be;
+    --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    --line: 1px solid var(--color-grey-light-2);
+    --shadow-box: offset(0) shadow(10px) blur(20px) rgba(0, 0, 0, .2);
+}
+
+
+
+.my-table {
+    border-collapse: collapse;
+    /*margin: 2.5rem 0;*/
+    font-size: 1.2rem;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: var(--shadow-dark);
+}
+
+    .my-table thead tr {
+        background-color: var(--color-blue-dark);
+        color: var(--color-grey-light-1);
+        font-weight: bold;
+    }
+
+    .my-table th,
+    .my-table td {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .my-table tbody tr {
+        border-bottom: 1px solid var(--color-grey-dark-2);
+    }
+
+    .my-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .my-table tbody tr:last-of-type {
+        border-bottom: 2px solid darkblue;
+    }
