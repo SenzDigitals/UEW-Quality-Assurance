@@ -64,7 +64,9 @@
 .appraisal-head{
     margin-top: 1rem;
     display:flex;
-    justify-content: flex-end;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
     
 }
 
@@ -76,6 +78,7 @@
         text-transform: uppercase;
         text-decoration: none;
         padding: .5rem 2rem;
+        border-radius: 100px;
     }
 
 @media only screen and (max-width: 31.25em) {
