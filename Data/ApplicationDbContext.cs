@@ -66,5 +66,7 @@ namespace UEW_Quality_Assurance.Data
             builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
 
         }
+
+        public DbSet<UEW_Quality_Assurance.Models.SectionA> SectionA { get; set; }
     }
 }
