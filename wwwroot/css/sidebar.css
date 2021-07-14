@@ -1,0 +1,106 @@
+﻿:root {
+    --color-primary: #eb2f64;
+    --color-red-light: #FF0000;
+    --color-red-dark: #c40233;
+    --color-blue-light: #0000ff;
+    --color-blue-dark: #0018a8;
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+    --color-grey-light-4: #ccc;
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+    --color-blond: #faf0be;
+    --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    --line: 1px solid var(--color-grey-light-2);
+}
+.my-side_bar {
+    background-color: var(--color-red-light);
+    flex: 0 0 18%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.myside-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    /*margin-top: 3.5rem;*/
+}
+
+@media only screen and (max-width: 56.25em) {
+    .myside-nav {
+        display: flex;
+        margin: 0;
+        flex: 0 0 5%;
+    }
+}
+
+.myside-nav__item {
+    position: relative;
+}
+
+    .myside-nav__item:not(:last-child) {
+        margin-bottom: .5rem;
+    }
+
+@media only screen and (max-width: 56.25em) {
+    .myside-nav__item:not(:last-child) {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    .myside-nav__item {
+        flex: 1;
+    }
+}
+
+.myside-nav__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-blue-light);
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+}
+
+.myside-nav__item:hover::before, .myside-nav__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+}
+
+.myside-nav__item:active::before {
+    background-color: var(--color-red-light);
+}
+
+.myside-nav__link:link, .myside-nav__link:visited {
+    color: var(--color-grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 56.25em) {
+    .myside-nav__link:link, .myside-nav__link:visited {
+        justify-content: center;
+        padding: 2rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .myside-nav__link:link, .myside-nav__link:visited {
+        flex-direction: column;
+        padding: 1.5rem .5rem;
+    }
+}

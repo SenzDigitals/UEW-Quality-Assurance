@@ -1,0 +1,444 @@
+﻿:root {
+    --color-primary: #eb2f64;
+    --color-red-light: #FF0000;
+    --color-red-dark: #c40233;
+    --color-blue-light: #0000ff;
+    --color-blue-dark: #0018a8;
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+    --color-grey-light-4: #ccc;
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+    --color-blond: #faf0be;
+    --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+    --line: 1px solid var(--color-grey-light-2);
+    --shadow-box: offset(0) shadow(10px) blur(20px) rgba(0, 0, 0, .2);
+}
+/**** INDEX****/
+.body-page {
+    font-size: 1.2rem;
+}
+
+.myhead-group {
+    margin-bottom: 15rem;
+}
+
+.mybody-head {
+    font-size: 3.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--color-red-light),var(--color-blue-light));
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-top: 2rem;
+    letter-spacing: 2rem;
+    animation: joinText 1s ease-in-out;
+}
+
+.mybody-btn {
+    background-color: var(--color-blue-dark);
+    color: #fff;
+}
+
+.mybody-btn_1 {
+    animation: moveInBottom 1s ease-in-out;
+}
+
+.mybody-btn_2 {
+    animation: moveInRight 1s ease-in-out;
+}
+
+.mybody-btn:link,
+.mybody-btn:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+}
+
+.mypulsate-btn{
+    color:var(--color-grey-dark-2);
+    animation: pulsate infinite ease 1.5s;
+}
+.mypulsate-btn:link,
+.mypulsate-btn:visited{
+    text-decoration:none;
+}
+
+
+.appraisal-header{
+    font-size: 2rem;
+    margin: 3rem 0;
+    display: inline-block;
+    text-transform:uppercase;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--color-red-light),var(--color-blue-light));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+.appraisal-body{
+    display:flex;
+    justify-content:space-around;
+    margin-top: 2rem;
+}
+
+.mycolumn-body {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+.mysearch {
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.mysearch_input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all .2s;
+    /*margin-right: -3.25rem;*/
+    
+}
+
+.mysearch_input:focus {
+    outline: none;
+    width: 100%;
+    background-color: var(--color-grey-light-3);
+}
+
+.mysearch_input::-webkit-input-placeholder {
+    font-weight: 100;
+    color: var(--color-grey-light-4);
+}
+
+.mysearch_input:focus{
+    background-color: var(--color-grey-light-3);
+}
+
+
+
+.mail-body {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.mail-table {
+    margin-left: 3rem;
+}
+
+.compose-mail{
+    margin-left: 15rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+    .appraisal-body {
+        flex-direction:column;
+        text-align:center;
+        
+    }
+
+    .mail-body {
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    .mail-table{
+        margin-left: 0;
+    }
+
+    .appraisal-body_form {
+        margin-bottom: 2rem;
+    }
+
+    .myform_input {
+        width: 50%;
+        display: inline-block;
+    }
+
+    .text-danger {
+        visibility:hidden
+    }
+
+    .myappraisal-table {
+        margin-top: 2rem;
+        align-self: center;
+        justify-self: center;
+        /*margin-left: 2.6rem;*/
+    }
+}
+
+.form_group:not(:last-child){
+    margin-bottom: 2rem;
+}
+
+.myform_input{
+    font-size: 1.5rem;
+    font-family:inherit;
+    color:inherit;
+    padding:1.5rem 2rem;
+    border-radius: .2rem;
+    border:none;
+    border-bottom: .3rem solid var(--color-blue-dark);
+    width: 100%;
+    display:block;
+    transition: all .3s;
+}
+
+.myform_input-half {
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: .2rem;
+    border: none;
+    border-bottom: .3rem solid var(--color-blue-dark);
+    width: 40%;
+    display: inline-block;
+    transition: all .3s;
+    text-align:center;
+}
+
+.myform_input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--color-blue-light);
+}
+
+.myform_input:focus:invalid {
+    border-bottom: 3px solid #ff7730;
+}
+
+.myform_input::-webkit-input-placeholder {
+    color: #999;
+}
+
+.myform_label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    transition: all .3s;
+    display:block;
+}
+
+.myform_btn{
+    margin-top: 2rem;
+    border:none;
+    color:#fff;
+    background-color:var(--color-blue-dark);
+    padding: 1.5rem 2rem;
+}
+
+.myform_btn-small {
+    margin-top: 1rem;
+    border: none;
+    color: #fff;
+    background-color: var(--color-blue-dark);
+    padding: .5rem 1rem;
+}
+
+.text-danger {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-red-light);
+    animation: pulsate infinite ease-in-out;
+}
+.myappraisal-table{
+    font-size:1.2rem;
+}
+
+
+.mybtn-edit:link,
+.mybtn-edit:visited{
+    color:green;
+    display:inline-block;
+    text-decoration:none;
+    border-bottom: .1rem solid green;
+    padding: .3rem;
+    transition: all .2s;
+}
+
+.mybtn-edit:hover{
+    background-color:green;
+    color:white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+    transform:translateY(-.2rem);
+}
+
+.mybtn-edit:active{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, .15);
+    transform: translateY(0);
+}
+
+.mybtn-delete:link,
+.mybtn-delete:visited {
+    color: var(--color-red-dark);
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: .1rem solid var(--color-red-dark);
+    padding: .3rem;
+    transition: all .2s;
+}
+
+.mybtn-delete:hover {
+    background-color: var(--color-red-dark);
+    color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+    transform: translateY(-.2rem);
+}
+
+.mybtn-delete:active {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, .15);
+    transform: translateY(0);
+}
+
+.delete-form {
+    font-size: 1.5rem;
+}
+
+.myform_delete {
+    color: var(--color-red-dark);
+    display: inline-block;
+    text-decoration: none;
+    background-color:transparent;
+    border:none;
+    border-bottom: .1rem solid var(--color-red-dark);
+    padding: .3rem;
+    transition: all .2s;
+}
+.myform_delete:hover {
+    background-color: var(--color-red-dark);
+    color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+    transform: translateY(-.2rem);
+ }
+
+.myform_back:link,
+.myform_back:visited{
+    font-size: 1rem;
+    color: green;
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: .1rem solid green;
+    padding: .3rem;
+    transition: all .2s;
+}
+
+.myform_back:hover {
+    background-color: green;
+    color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15);
+    transform: translateY(-.2rem);
+}
+
+.student-details{
+    font-size:1.2rem;
+}
+
+.student-details_student{
+    margin-bottom: 2rem;
+}
+
+@keyframes joinText {
+    0%{
+        letter-spacing:10rem;
+    }
+
+    50%{
+        opacity:0;
+    }
+
+    80%{
+        opacity:1;
+        letter-spacing: 0;
+    }
+
+    100%{
+        opacity:1;
+        letter-spacing: 2rem;
+    }
+}
+
+@keyframes moveInLeft{
+    0%{
+        opacity:0;
+        transform: translateX(-10rem);
+    }
+
+    80%{
+        transform: translateX(2rem);
+    }
+
+    100%{
+        opacity:1;
+        transform:translate(0);
+    }
+}
+
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+
+    80% {
+        transform: translateY(2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes pulsate{
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(6.05);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.50);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}

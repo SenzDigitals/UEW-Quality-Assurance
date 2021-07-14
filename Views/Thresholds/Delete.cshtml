@@ -5,13 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="~/css/body.css" />
 <h1>Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Threshold</h4>
-    <hr />
-    <dl class="row">
+    
+    <dl class="row delete-form">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.limit)
         </dt>
@@ -28,7 +29,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Cancel</a>
+        <input type="submit" value="Delete" class="btn btn-danger myform_delete" /> |
+        <a asp-action="Index" class="myform_back">Cancel</a>
     </form>
 </div>
