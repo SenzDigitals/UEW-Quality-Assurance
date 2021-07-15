@@ -49,4 +49,8 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Questionaire\Student\" />
+  </ItemGroup>
+
 </Project>
