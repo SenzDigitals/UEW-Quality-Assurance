@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace UEW_Quality_Assurance.Models
@@ -10,9 +11,12 @@ namespace UEW_Quality_Assurance.Models
     {
         [Key]
         public string To { set; get; }
-        public string Subject { get; set; }
-        public string  Body { get; set; }
 
+        [Required]
+        public string Subject { get; set; }
+
+        [Required]
+        public string  Body { get; set; }
 
     }
 }

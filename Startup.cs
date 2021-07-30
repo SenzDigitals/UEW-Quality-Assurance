@@ -1,18 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using UEW_Quality_Assurance.Data;
 using UEW_Quality_Assurance.Models;
+using MailKit;
+using UEW_Quality_Assurance.App_Start.Messaging;
+using ServiceStack.Messaging;
 
 namespace UEW_Quality_Assurance
 {
@@ -38,6 +35,8 @@ namespace UEW_Quality_Assurance
             services.AddDbContext<ApplicationDbContext>(opt =>
                 opt.UseMySql(dbConnectionString, ServerVersion.AutoDetect(dbConnectionString)));
 
+            
+
             services.AddIdentity<ApplicationUser, IdentityRole>(options => {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.SignIn.RequireConfirmedAccount = false;
@@ -52,6 +51,8 @@ namespace UEW_Quality_Assurance
             services.AddRazorPages();
             services.AddMvc();
             services.AddControllersWithViews();
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,3 +87,4 @@ namespace UEW_Quality_Assurance
         }
     }
 }
+
