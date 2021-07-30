@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SectionB</title>
+</head>
+<body>
+    @Html.Partial("/Views/Partials/_Appraisals.cshtml")
+
+
+
+    <form action="/" method="post">
+        <div class="row">
+            <table style="width:auto">
+                <tr>
+                    <th>SECTION B: Course Content  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    @*<th>Agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th>Strongly Agree &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>*@
+                </tr>
+
+                <tr>
+                    <td>31.	Modern teaching aids such as Projectors and other Multi-Media devices were used</td>
+                    <td><input id="Radio1" type="radio" name="31" value="Part Time" /></td>
+                    <td><input id="Radio1" type="radio" name="31" value="Part Time" /></td>
+                    @*<td><input id="Radio1" type="radio" name="21" value="Part Time" /></td>
+                    <td><input id="Radio1" type="radio" name="21" value="Part Time" /></td>*@
+                </tr>
+
+                <tr>
+                    <td>32.	Radio lectures were used to support the course delivery</td>
+                    <td><input id="Radio1" type="radio" name="32" value="Part Time" /></td>
+                    <td><input id="Radio1" type="radio" name="32" value="Part Time" /></td>
+                    @*<td><input id="Radio1" type="radio" name="22" value="Part Time" /></td>
+                    <td><input id="Radio1" type="radio" name="22" value="Part Time" /></td>*@
+                </tr>
+                <tr>
+                    <td>33.	Classrooms were comfortable for teaching and learning</td>
+
+                    <td><input id="Radio1" type="radio" name="33" value="Part Time" /></td>
+                    <td> <input id="Radio1" type="radio" name="33" value="Part Time" /></td>
+                    @*<td><input id="Radio1" type="radio" name="23" value="Part Time" /></td>
+                    <td><input id="Radio1" type="radio" name="23" value="Part Time" /></td>*@
+                </tr>
+                <tr>
+                    <td>34.	There were enough seats for all students during lectures</td>
+
+                    <td><input id="Radio1" type="radio" name="34" value="Part Time" /></td>
+                    <td> <input id="Radio1" type="radio" name="34" value="Part Time" /></td>
+                    @*<td><input id="Radio1" type="radio" name="24" value="Part Time" /></td>
+                    <td><input id="Radio1" type="radio" name="24" value="Part Time" /></td>*@
+                </tr>
+                <tr>
+                    <td>25.	The Lecturer delivered at an appropriate pace/speed</td>
+
+                    <td><input id="Radio1" type="radio" name="25" value="Part Time" /></td>
+                    <td> <input id="Radio1" type="radio" name="25" value="Part Time" /></td>
+                    @*<td><input id="Radio1" type="radio" name="25" value="Part Time" /></td>
+                    <td><input id="Radio1" type="radio" name="25" value="Part Time" /></td>*@
+                </tr>
+            </table>
+        </div>
+
+        <a class="nav-link text-dark mybtn-edit" asp-area="" asp-controller="RegularStudents" asp-action="SectionB"><input id="Button1" type="button" value="Previous" /></a>
+        <a class="nav-link text-dark mybtn-edit" asp-area="" asp-controller="RegularStudents" asp-action="SectionF"><input id="Button1" type="button" value="Submit" /></a>
+
+    </form>
+
+    </body>
+</html>

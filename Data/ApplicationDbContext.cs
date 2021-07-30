@@ -35,6 +35,7 @@ namespace UEW_Quality_Assurance.Data
         public DbSet<Lecturer> Lecturers { set; get; }
         public DbSet<Prog> Progs { set; get; }
         public DbSet<Student> Students { set; get; }
+        public DbSet<RegularStudent > RegularStudents { set; get; }
         public DbSet<UEW_Quality_Assurance.Models.Email> Email { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -52,6 +53,7 @@ namespace UEW_Quality_Assurance.Data
             builder.Entity<Lecturer>().ToTable("Lecturer");
             builder.Entity<Prog>().ToTable("Program");
             builder.Entity<Student>().ToTable("Student");
+            builder.Entity<RegularStudent>().ToTable("RegularStudent");
 
             builder.Entity<IdentityUser>();
 

@@ -10,22 +10,22 @@ using UEW_Quality_Assurance.Models;
 
 namespace UEW_Quality_Assurance.Controllers
 {
-    public class SectionAsController : Controller
+    public class RegularStudentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SectionAsController(ApplicationDbContext context)
+        public RegularStudentsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: SectionAs
+        // GET: RegularStudents
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SectionA.ToListAsync());
+            return View(await _context.RegularStudents.ToListAsync());
         }
 
-        // GET: SectionAs/Details/5
+        // GET: RegularStudents/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,75 @@ namespace UEW_Quality_Assurance.Controllers
                 return NotFound();
             }
 
-            var sectionA = await _context.SectionA
+            var regularStudent = await _context.RegularStudents
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (sectionA == null)
+            if (regularStudent == null)
             {
                 return NotFound();
             }
 
-            return View(sectionA);
+            return View(regularStudent);
         }
 
-        // GET: SectionAs/Create
+
+        public async Task<IActionResult> SectionB()
+        {
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var regularStudent = await _context.RegularStudents
+            //    .FirstOrDefaultAsync(m => m.ID == id);
+            //if (regularStudent == null)
+            //{
+            //    return NotFound();
+            //}
+
+            return View(await _context.RegularStudents.ToListAsync());
+        }
+
+        public async Task<IActionResult> SectionF()
+        {
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var regularStudent = await _context.RegularStudents
+            //    .FirstOrDefaultAsync(m => m.ID == id);
+            //if (regularStudent == null)
+            //{
+            //    return NotFound();
+            //}
+
+            return View(await _context.RegularStudents.ToListAsync());
+        }
+
+
+        // GET: RegularStudents/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: SectionAs/Create
+        // POST: RegularStudents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID")] SectionA sectionA)
+        public async Task<IActionResult> Create([Bind("ID,Results")] RegularStudent regularStudent)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(sectionA);
+                _context.Add(regularStudent);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(sectionA);
+            return View(regularStudent);
         }
 
-        // GET: SectionAs/Edit/5
+        // GET: RegularStudents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +109,22 @@ namespace UEW_Quality_Assurance.Controllers
                 return NotFound();
             }
 
-            var sectionA = await _context.SectionA.FindAsync(id);
-            if (sectionA == null)
+            var regularStudent = await _context.RegularStudents.FindAsync(id);
+            if (regularStudent == null)
             {
                 return NotFound();
             }
-            return View(sectionA);
+            return View(regularStudent);
         }
 
-        // POST: SectionAs/Edit/5
+        // POST: RegularStudents/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID")] SectionA sectionA)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Results")] RegularStudent regularStudent)
         {
-            if (id != sectionA.ID)
+            if (id != regularStudent.ID)
             {
                 return NotFound();
             }
@@ -97,12 +133,12 @@ namespace UEW_Quality_Assurance.Controllers
             {
                 try
                 {
-                    _context.Update(sectionA);
+                    _context.Update(regularStudent);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SectionAExists(sectionA.ID))
+                    if (!RegularStudentExists(regularStudent.ID))
                     {
                         return NotFound();
                     }
@@ -113,10 +149,10 @@ namespace UEW_Quality_Assurance.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(sectionA);
+            return View(regularStudent);
         }
 
-        // GET: SectionAs/Delete/5
+        // GET: RegularStudents/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +160,30 @@ namespace UEW_Quality_Assurance.Controllers
                 return NotFound();
             }
 
-            var sectionA = await _context.SectionA
+            var regularStudent = await _context.RegularStudents
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (sectionA == null)
+            if (regularStudent == null)
             {
                 return NotFound();
             }
 
-            return View(sectionA);
+            return View(regularStudent);
         }
 
-        // POST: SectionAs/Delete/5
+        // POST: RegularStudents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var sectionA = await _context.SectionA.FindAsync(id);
-            _context.SectionA.Remove(sectionA);
+            var regularStudent = await _context.RegularStudents.FindAsync(id);
+            _context.RegularStudents.Remove(regularStudent);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SectionAExists(int id)
+        private bool RegularStudentExists(int id)
         {
-            return _context.SectionA.Any(e => e.ID == id);
+            return _context.RegularStudents.Any(e => e.ID == id);
         }
     }
 }

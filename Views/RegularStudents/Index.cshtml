@@ -1,0 +1,114 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @Html.Partial("/Views/Partials/_Appraisals.cshtml")
+    <div align="center">
+        <h2>SECTION A: Bio-Data</h2>
+        <h3> Please fill in the following or tick (√) as applicable</h3>
+    </div>
+
+    <form action="/" method="post">
+        <div class="row">
+            <div class="col-md-3">
+                <ol>
+                    <li>
+                        Name Of Lecturer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select id="lecturerName">
+                            <option> Douglas Senzu Tweneboahs</option>
+
+                        </select>
+                    </li>
+                    <br />
+                    <li>
+                        Status of Lecturer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="Full Time">Full Time</label>
+                        <input id="Radio1" type="radio" name="status" value="Full Time" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="Part Time">Part Time</label>
+                        <input id="Radio1" type="radio" name="status" value="Part Time" />
+
+                    </li>
+                    <br />
+                    <li>
+                        Department of Lecturer: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select id="lecturerName">
+                            <option> Department of ICT Education</option>
+
+                        </select>
+                    </li>
+                    <br />
+                    <li>
+                        Course Code & Title: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select id="lecturerName">
+                            <option> ICTE111-Computer Systems and Application</option>
+
+                        </select>
+
+                    </li>
+                    <br />
+                    <li>
+                        Nature of Course: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <label for="Full Time">Lectures Only</label>
+                        <input id="Radio1" type="radio" name="courseNature" value="lecture" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="Part Time">Practical Only</label>
+                        <input id="Radio1" type="radio" name="courseNature" value="practical" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="Part Time">Both Lecuters & Practical</label>
+                        <input id="Radio1" type="radio" name="courseNature" value="both" />
+                    </li>
+                    <br />
+                    <li>
+                        Academic Year: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        2021 / 2022
+                    </li>
+                    <br />
+                    <li>
+                        Semester: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        1
+                    </li>
+                    <br />
+                    <li>
+                        Sex of Student: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="Female">Female</label>
+                        <input id="Radio1" type="radio" name="sex" value="lecture" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="Male">Male</label>
+                        <input id="Radio1" type="radio" name="sex" value="practical" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </li>
+                    <br />
+                    <li>
+                        Level of Student: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="Hundred">100</label>
+                        <input id="Radio1" type="radio" name="level" value="Hundred" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="twohundred">200</label>
+                        <input id="Radio1" type="radio" name="level" value="twohundred" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="threehundred">300</label>
+                        <input id="Radio1" type="radio" name="level" value="threehundred" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="fourhundred">400</label>
+                        <input id="Radio1" type="radio" name="level" value="fourhundred" />
+                    </li>
+                    <br />
+                </ol>
+
+            </div>
+
+        </div>
+
+
+        </div>
+
+        <a class="nav-link text-dark mybtn-edit" asp-area="" asp-controller="RegularStudents" asp-action="SectionB"><input id="Button1" type="button" value="Next" /></a>
+    </form>
+
+
+</body>
+</html>
